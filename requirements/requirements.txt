@@ -1,0 +1,10 @@
+# 직접 의존성. 실제 설치는 requirements-lock.txt를 사용합니다.
+mujoco==3.13.0
+numpy==2.2.6
+tomli==2.4.1
+Jinja2==3.1.6
+PyYAML==6.0.3
+transforms3d==0.4.2
+# cflib: setup_python.sh에서 upstream에서 받은 pinned source를 editable 설치합니다.
+# rclpy/sensor_msgs/tf_transformations: ROS APT/rosdep으로 제공합니다.
+# image bridge는 cv_bridge/OpenCV를 사용하지 않습니다.

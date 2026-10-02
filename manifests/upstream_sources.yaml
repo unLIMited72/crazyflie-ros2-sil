@@ -1,0 +1,312 @@
+{
+  "schema": 1,
+  "format_note": "JSON은 YAML 1.2 subset; bootstrap은 Python stdlib json으로 읽습니다.",
+  "sources": [
+    {
+      "name": "crazyflie-firmware",
+      "path": "crazyflie-firmware",
+      "url": "https://github.com/llanesc/crazyflie-firmware.git",
+      "commit": "aa6571dc465f06f7d1f9aaf7b0b861fbcd1b3d67",
+      "branch_reference": "(detached HEAD)",
+      "parent": null,
+      "optional": false,
+      "patches": [],
+      "expected_modified_files": {}
+    },
+    {
+      "name": "unity",
+      "path": "crazyflie-firmware/vendor/unity",
+      "url": "https://github.com/throwtheswitch/unity.git",
+      "commit": "287e076962ec711cd2bdf08364a8df9ce51e106b",
+      "branch_reference": "(detached HEAD)",
+      "parent": "crazyflie-firmware",
+      "optional": false,
+      "patches": [],
+      "expected_modified_files": {}
+    },
+    {
+      "name": "cmock",
+      "path": "crazyflie-firmware/vendor/cmock",
+      "url": "https://github.com/throwtheswitch/cmock.git",
+      "commit": "cb1ad78b974937e1ad717858fab73ec5380ef94b",
+      "branch_reference": "(detached HEAD)",
+      "parent": "crazyflie-firmware",
+      "optional": false,
+      "patches": [],
+      "expected_modified_files": {}
+    },
+    {
+      "name": "unity",
+      "path": "crazyflie-firmware/vendor/cmock/vendor/unity",
+      "url": "https://github.com/throwtheswitch/unity.git",
+      "commit": "287e076962ec711cd2bdf08364a8df9ce51e106b",
+      "branch_reference": "(detached HEAD)",
+      "parent": "crazyflie-firmware/vendor/cmock",
+      "optional": false,
+      "patches": [],
+      "expected_modified_files": {}
+    },
+    {
+      "name": "c_exception",
+      "path": "crazyflie-firmware/vendor/cmock/vendor/c_exception",
+      "url": "https://github.com/throwtheswitch/cexception.git",
+      "commit": "dce9e8b26f2179439002e02d691429e81a32b6c0",
+      "branch_reference": "(detached HEAD)",
+      "parent": "crazyflie-firmware/vendor/cmock",
+      "optional": false,
+      "patches": [],
+      "expected_modified_files": {}
+    },
+    {
+      "name": "unity",
+      "path": "crazyflie-firmware/vendor/cmock/vendor/c_exception/vendor/unity",
+      "url": "https://github.com/throwtheswitch/unity.git",
+      "commit": "2c7629a0ae90ffe991b5fd08e4db8672f72ed64c",
+      "branch_reference": "(detached HEAD)",
+      "parent": "crazyflie-firmware/vendor/cmock/vendor/c_exception",
+      "optional": false,
+      "patches": [],
+      "expected_modified_files": {}
+    },
+    {
+      "name": "CMSIS",
+      "path": "crazyflie-firmware/vendor/CMSIS",
+      "url": "https://github.com/ARM-software/CMSIS_5.git",
+      "commit": "a65b7c9a3e6502127fdb80eb288d8cbdf251a6f4",
+      "branch_reference": "(detached HEAD)",
+      "parent": "crazyflie-firmware",
+      "optional": false,
+      "patches": [],
+      "expected_modified_files": {}
+    },
+    {
+      "name": "FreeRTOS",
+      "path": "crazyflie-firmware/vendor/FreeRTOS",
+      "url": "https://github.com/FreeRTOS/FreeRTOS-Kernel.git",
+      "commit": "3604527e3b31991c596cd420f32989ee890aca4a",
+      "branch_reference": "(detached HEAD)",
+      "parent": "crazyflie-firmware",
+      "optional": false,
+      "patches": [],
+      "expected_modified_files": {}
+    },
+    {
+      "name": "libdw1000",
+      "path": "crazyflie-firmware/vendor/libdw1000",
+      "url": "https://github.com/bitcraze/libdw1000.git",
+      "commit": "a77610327fb875a69543f3a8d19507683b68aff1",
+      "branch_reference": "(detached HEAD)",
+      "parent": "crazyflie-firmware",
+      "optional": false,
+      "patches": [],
+      "expected_modified_files": {}
+    },
+    {
+      "name": "unity",
+      "path": "crazyflie-firmware/vendor/libdw1000/vendor/unity",
+      "url": "https://github.com/throwtheswitch/unity.git",
+      "commit": "7943c766b993c9a84e1f6661d2d2427f6f2df9d0",
+      "branch_reference": "(detached HEAD)",
+      "parent": "crazyflie-firmware/vendor/libdw1000",
+      "optional": false,
+      "patches": [],
+      "expected_modified_files": {}
+    },
+    {
+      "name": "cmock",
+      "path": "crazyflie-firmware/vendor/libdw1000/vendor/cmock",
+      "url": "https://github.com/throwtheswitch/cmock.git",
+      "commit": "581642e08c6d2c71f63e6021f97c94829c0098b6",
+      "branch_reference": "(detached HEAD)",
+      "parent": "crazyflie-firmware/vendor/libdw1000",
+      "optional": false,
+      "patches": [],
+      "expected_modified_files": {}
+    },
+    {
+      "name": "unity",
+      "path": "crazyflie-firmware/vendor/libdw1000/vendor/cmock/vendor/unity",
+      "url": "https://github.com/throwtheswitch/unity.git",
+      "commit": "33325f4a0bc0931823867b11241dff3c2a0b60b7",
+      "branch_reference": "(detached HEAD)",
+      "parent": "crazyflie-firmware/vendor/libdw1000/vendor/cmock",
+      "optional": false,
+      "patches": [],
+      "expected_modified_files": {}
+    },
+    {
+      "name": "c_exception",
+      "path": "crazyflie-firmware/vendor/libdw1000/vendor/cmock/vendor/c_exception",
+      "url": "https://github.com/throwtheswitch/cexception.git",
+      "commit": "ea0c4352f8912dcadac1c328901c51190084eb7b",
+      "branch_reference": "(detached HEAD)",
+      "parent": "crazyflie-firmware/vendor/libdw1000/vendor/cmock",
+      "optional": false,
+      "patches": [],
+      "expected_modified_files": {}
+    },
+    {
+      "name": "unity",
+      "path": "crazyflie-firmware/vendor/libdw1000/vendor/cmock/vendor/c_exception/vendor/unity",
+      "url": "https://github.com/throwtheswitch/unity.git",
+      "commit": "47a778d606fbfabde459b0f725a67b18c1bce6ee",
+      "branch_reference": "(detached HEAD)",
+      "parent": "crazyflie-firmware/vendor/libdw1000/vendor/cmock/vendor/c_exception",
+      "optional": false,
+      "patches": [],
+      "expected_modified_files": {}
+    },
+    {
+      "name": "crazyflie-simulation",
+      "path": "crazyflie-firmware/tools/crazyflie-simulation",
+      "url": "https://github.com/llanesc/crazyflie-simulation.git",
+      "commit": "89d8cf79fb722bf4bd7e363ade7d90d6c45d6d5d",
+      "branch_reference": "(detached HEAD)",
+      "parent": "crazyflie-firmware",
+      "optional": false,
+      "patches": [
+        {
+          "path": "patches/crazyflie-simulation/0001-baseline.patch",
+          "sha256": "ed8a7f95b7c91d5e30dc106b09c82c82748ef1c2d683728db44ca12c6bc3b579",
+          "purpose": "read-only source baseline의 local diff 복원"
+        },
+        {
+          "path": "patches/crazyflie-simulation/0002-path-portability.patch",
+          "sha256": "3da15c839152ad52d5be6cb993ec6d4ac180631a53499c3b9b1b618b19579a3e",
+          "purpose": "Export에서 검증한 scene/executable 경로 quoting; 기능 기본값 동일"
+        }
+      ],
+      "expected_modified_files": {
+        "simulator_files/mujoco/crazysim_cpx.py": {
+          "sha256": "80ffdcffa070b6ed0e5cab581ffb62678df31b2f5346520ee239852463f6fb97",
+          "executable": true
+        },
+        "simulator_files/mujoco/launch/sitl_camera.sh": {
+          "sha256": "b6a796c831fc509c81475527b61fca20378908104aaf78db4074312968abc7bc",
+          "executable": true
+        }
+      }
+    },
+    {
+      "name": "drone-models",
+      "path": "crazyflie-firmware/tools/crazyflie-simulation/simulator_files/mujoco/drone-models",
+      "url": "https://github.com/utiasDSL/drone-models.git",
+      "commit": "512c864ffa55081ef4e80fadde2e861f22f45943",
+      "branch_reference": "(detached HEAD)",
+      "parent": "crazyflie-firmware/tools/crazyflie-simulation",
+      "optional": false,
+      "patches": [],
+      "expected_modified_files": {}
+    },
+    {
+      "name": "crazyswarm2",
+      "path": "crazyswarm2_ws/src/crazyswarm2",
+      "url": "https://github.com/llanesc/crazyswarm2.git",
+      "commit": "2334b7a32432fd3f9e1133c52361ddcc27ca3cf7",
+      "branch_reference": "(detached HEAD)",
+      "parent": null,
+      "optional": false,
+      "patches": [
+        {
+          "path": "patches/crazyswarm2/0001-baseline.patch",
+          "sha256": "a02f5c64db793b5edc3c16ac93f017b2f340178cb93381961294d9f0aae3feae",
+          "purpose": "read-only source baseline의 local diff 복원"
+        }
+      ],
+      "expected_modified_files": {
+        "crazyflie/config/crazyflies.yaml": {
+          "sha256": "20bac4eee5933d48cc2210fbab7a23629eae7f53753dbb991b3b7b28e6ece7ee",
+          "executable": false
+        }
+      }
+    },
+    {
+      "name": "crazyflie_tools",
+      "path": "crazyswarm2_ws/src/crazyswarm2/crazyflie/deps/crazyflie_tools",
+      "url": "https://github.com/llanesc/crazyflie_tools.git",
+      "commit": "c684de4a81e57106453f8e604e1daa3f5b16d800",
+      "branch_reference": "(detached HEAD)",
+      "parent": "crazyswarm2_ws/src/crazyswarm2",
+      "optional": false,
+      "patches": [],
+      "expected_modified_files": {}
+    },
+    {
+      "name": "crazyflie_cpp",
+      "path": "crazyswarm2_ws/src/crazyswarm2/crazyflie/deps/crazyflie_tools/crazyflie_cpp",
+      "url": "https://github.com/llanesc/crazyflie_cpp.git",
+      "commit": "38b625ceda620868166feb9c0bf82df153d08203",
+      "branch_reference": "(detached HEAD)",
+      "parent": "crazyswarm2_ws/src/crazyswarm2/crazyflie/deps/crazyflie_tools",
+      "optional": false,
+      "patches": [],
+      "expected_modified_files": {}
+    },
+    {
+      "name": "crazyflie-link-cpp",
+      "path": "crazyswarm2_ws/src/crazyswarm2/crazyflie/deps/crazyflie_tools/crazyflie_cpp/crazyflie-link-cpp",
+      "url": "https://github.com/llanesc/crazyflie-link-cpp.git",
+      "commit": "4821cbd48ad667ec19c760b10414b8c0b138b309",
+      "branch_reference": "(detached HEAD)",
+      "parent": "crazyswarm2_ws/src/crazyswarm2/crazyflie/deps/crazyflie_tools/crazyflie_cpp",
+      "optional": false,
+      "patches": [],
+      "expected_modified_files": {}
+    },
+    {
+      "name": "libusb",
+      "path": "crazyswarm2_ws/src/crazyswarm2/crazyflie/deps/crazyflie_tools/crazyflie_cpp/crazyflie-link-cpp/libusb",
+      "url": "https://github.com/libusb/libusb.git",
+      "commit": "683e3cf21ed37d4492c20cea8de810c4d95ae8b6",
+      "branch_reference": "(detached HEAD)",
+      "parent": "crazyswarm2_ws/src/crazyswarm2/crazyflie/deps/crazyflie_tools/crazyflie_cpp/crazyflie-link-cpp",
+      "optional": false,
+      "patches": [],
+      "expected_modified_files": {}
+    },
+    {
+      "name": "pybind11",
+      "path": "crazyswarm2_ws/src/crazyswarm2/crazyflie/deps/crazyflie_tools/crazyflie_cpp/crazyflie-link-cpp/pybind11",
+      "url": "https://github.com/pybind/pybind11.git",
+      "commit": "5b0a6fc2017fcc176545afe3e09c9f9885283242",
+      "branch_reference": "(detached HEAD)",
+      "parent": "crazyswarm2_ws/src/crazyswarm2/crazyflie/deps/crazyflie_tools/crazyflie_cpp/crazyflie-link-cpp",
+      "optional": false,
+      "patches": [],
+      "expected_modified_files": {}
+    },
+    {
+      "name": "crazyflie-lib-python",
+      "path": "crazyflie-lib-python",
+      "url": "https://github.com/bitcraze/crazyflie-lib-python.git",
+      "commit": "3c1cb0d024fef6f45d08f0ad236a22ac395dd924",
+      "branch_reference": "master",
+      "parent": null,
+      "optional": false,
+      "patches": [],
+      "expected_modified_files": {}
+    },
+    {
+      "name": "crazyflie-lib-python-fpv",
+      "path": "crazyflie-lib-python-fpv",
+      "url": "https://github.com/bitcraze/crazyflie-lib-python.git",
+      "commit": "70d10a13a5f61258dd9677a875b85ff32bfae135",
+      "branch_reference": "(detached HEAD)",
+      "parent": null,
+      "optional": true,
+      "patches": [
+        {
+          "path": "patches/crazyflie-lib-python-fpv/0001-baseline.patch",
+          "sha256": "c7bea18129eb542fbc603bab017b7f53053cec86f49c47dca8911f62d74b1607",
+          "purpose": "read-only source baseline의 local diff 복원"
+        }
+      ],
+      "expected_modified_files": {
+        "examples/aideck/fpv.py": {
+          "sha256": "791e7b3d9d8bc1728e86674ea023248f4dc199ddb335fd33c5a9aa39a28c1111",
+          "executable": false
+        }
+      }
+    }
+  ]
+}

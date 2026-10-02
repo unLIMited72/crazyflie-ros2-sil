@@ -1,0 +1,6 @@
+# SPDX-License-Identifier: Apache-2.0
+# Manifest의 patch checksum은 원래 diff bytes 기준입니다.
+*.patch -text
+*.sh text eol=lf
+*.bash text eol=lf
+*.py text eol=lf

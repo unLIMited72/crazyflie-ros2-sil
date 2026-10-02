@@ -1,0 +1,6 @@
+# pip/setuptools/wheel은 baseline 관찰 버전.
+pip==26.2.1
+setuptools==79.0.1
+wheel==0.48.0
+# pinned cflib PEP517 build backend. baseline에는 상주 설치되지 않았음.
+setuptools-scm==8.3.1

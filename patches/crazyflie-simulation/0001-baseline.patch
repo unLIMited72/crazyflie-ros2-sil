@@ -1,0 +1,275 @@
+diff --git a/simulator_files/mujoco/crazysim_cpx.py b/simulator_files/mujoco/crazysim_cpx.py
+index d376c5d..0a0337a 100755
+--- a/simulator_files/mujoco/crazysim_cpx.py
++++ b/simulator_files/mujoco/crazysim_cpx.py
+@@ -94,12 +94,13 @@ class CrazySimCPX:
+     """ESP32 emulator — CPX TCP server + CRTP/UDP bridge + camera framer."""
+ 
+     def __init__(self, cpx_port: int, cflib_port: int, frame_port: int,
+-                 host: str = '127.0.0.1'):
++                 host: str = '127.0.0.1', camera_only: bool = False):
+         self._cpx_port = cpx_port
+         self._cflib_host = host
+         self._cflib_port = cflib_port
+         self._frame_port = frame_port
+         self._host = host
++        self._camera_only = camera_only
+ 
+         # CPX TCP client (single client, like the real AI-deck)
+         self._cpx_client: socket.socket | None = None
+@@ -115,8 +116,14 @@ class CrazySimCPX:
+     def run(self):
+         self._running = True
+ 
+-        # Start CRTP UDP → CPX TCP forwarder (firmware responses → client)
+-        threading.Thread(target=self._crtp_to_cpx_loop, daemon=True).start()
++        # Start CRTP bridge only when it is needed.
++        if not self._camera_only:
++            threading.Thread(
++                target=self._crtp_to_cpx_loop,
++                daemon=True
++            ).start()
++        else:
++            print('[cpx] Camera-only mode: CRTP bridge disabled')
+ 
+         # Start camera frame receiver → CPX TCP streamer
+         threading.Thread(target=self._frame_to_cpx_loop, daemon=True).start()
+@@ -176,8 +183,12 @@ class CrazySimCPX:
+                 data = tcp_recv_exact(conn, data_len) if data_len > 0 else b''
+ 
+                 if func == CPX_F_CRTP:
+-                    # Forward raw CRTP data to firmware via cflib UDP port
+-                    self._crtp_sock.sendto(data, self._crtp_addr)
++                    if self._camera_only:
++                        continue
++                    self._crtp_sock.sendto(
++                        data,
++                        self._crtp_addr
++                    )
+ 
+                 elif func == CPX_F_SYSTEM:
+                     pass  # bridge enable etc. — not needed in sim
+@@ -327,6 +338,8 @@ def main():
+                    help='UDP port for camera frames from crazysim (default: 5200)')
+     p.add_argument('--host', default='127.0.0.1',
+                    help='Host where crazysim.py is running (default: 127.0.0.1)')
++    p.add_argument('--camera-only', action='store_true',
++                    help='Disable CRTP passthrough and provide camera CPX stream only')
+     args = p.parse_args()
+ 
+     CrazySimCPX(
+@@ -334,6 +347,7 @@ def main():
+         cflib_port=args.cflib_port,
+         frame_port=args.frame_port,
+         host=args.host,
++        camera_only=args.camera_only,
+     ).run()
+ 
+ 
+diff --git a/simulator_files/mujoco/launch/sitl_camera.sh b/simulator_files/mujoco/launch/sitl_camera.sh
+index 872721d..75d59ab 100755
+--- a/simulator_files/mujoco/launch/sitl_camera.sh
++++ b/simulator_files/mujoco/launch/sitl_camera.sh
+@@ -1,84 +1,165 @@
+ #!/bin/bash
+-# Launch a single Crazyflie SITL agent with MuJoCo visualization,
+-# AI-deck camera rendering, and the CPX bridge (ESP32 emulator).
++
++# Launch a single Crazyflie SITL agent with:
++# - MuJoCo visualization
++# - AI Deck camera
++# - CPX bridge
++# - optional Flow Deck
+ #
+-# Usage: ./sitl_camera.sh [-m <model_type>] [-s <scene_xml>]
+-#        [--sensor-noise] [--ground-effect]
++# Usage:
++# ./sitl_camera.sh \
++#   [-m <model_type>] \
++#   [-s <scene_xml>] \
++#   [-x <initial_x>] \
++#   [-y <initial_y>] \
++#   [--flowdeck] \
++#   [--sensor-noise] \
++#   [--ground-effect]
+ 
+ function cleanup() {
+-	pkill -x cf2
+-	pkill -f "crazysim_cpx.py"
++    pkill -x cf2 || true
++    pkill -f "crazysim_cpx.py" || true
+ }
+ 
+ if [ "$1" == "-h" ] || [ "$1" == "--help" ]; then
+-	echo "Usage: $0 [-m <model_type>] [-s <scene_xml>] [--sensor-noise] [--ground-effect]"
+-	echo ""
+-	echo "Feature flags:"
+-	echo "  --sensor-noise        BMI088 IMU noise model (bias, scale, white noise)"
+-	echo "  --ground-effect       Increased thrust near ground"
+-	exit 1
++    echo "Usage: $0 [-m <model_type>] [-s <scene_xml>] [-x <x>] [-y <y>] [--flowdeck] [--sensor-noise] [--ground-effect]"
++    echo ""
++    echo "Feature flags:"
++    echo "  --flowdeck            Simulate Flow Deck (ToF + optical flow, disables pose)"
++    echo "  --sensor-noise        BMI088 IMU noise model"
++    echo "  --ground-effect       Increased thrust near ground"
++    exit 0
+ fi
+ 
+-# Parse feature flags (long opts) before getopts
++# ---------------------------------------------------------
++# Feature flags
++# ---------------------------------------------------------
++
+ SENSOR_NOISE=""
+ GROUND_EFFECT=""
++FLOWDECK=""
++
+ POSITIONAL=()
++
+ while [[ $# -gt 0 ]]; do
+-	case "$1" in
+-		--sensor-noise)   SENSOR_NOISE="--sensor-noise"; shift;;
+-		--ground-effect)  GROUND_EFFECT="--ground-effect"; shift;;
+-		*) POSITIONAL+=("$1"); shift;;
+-	esac
++    case "$1" in
++        --sensor-noise)
++            SENSOR_NOISE="--sensor-noise"
++            shift
++            ;;
++        --ground-effect)
++            GROUND_EFFECT="--ground-effect"
++            shift
++            ;;
++        --flowdeck)
++            FLOWDECK="--flowdeck"
++            shift
++            ;;
++        *)
++            POSITIONAL+=("$1")
++            shift
++            ;;
++    esac
+ done
++
+ set -- "${POSITIONAL[@]}"
+ 
+-while getopts m:s: option; do
+-	case "${option}" in
+-		m) MODEL_TYPE=${OPTARG};;
+-		s) SCENE=${OPTARG};;
+-	esac
++# ---------------------------------------------------------
++# Short options
++# ---------------------------------------------------------
++
++while getopts m:s:x:y: option; do
++    case "${option}" in
++        m) MODEL_TYPE=${OPTARG};;
++        s) SCENE=${OPTARG};;
++        x) INITIAL_X=${OPTARG};;
++        y) INITIAL_Y=${OPTARG};;
++    esac
+ done
+ 
+ model_type=${MODEL_TYPE:="cf2x_T350"}
++initial_x=${INITIAL_X:="0"}
++initial_y=${INITIAL_Y:="0"}
++
+ scene_arg=""
+ [ -n "${SCENE}" ] && scene_arg="--scene ${SCENE}"
+ 
++# ---------------------------------------------------------
++# Paths
++# ---------------------------------------------------------
++
+ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
++
+ src_path="$SCRIPT_DIR/../../../../.."
+ build_path=${src_path}/sitl_make/build
+ crazysim_dir="$SCRIPT_DIR/.."
+ 
++# ---------------------------------------------------------
++# Cleanup previous instances
++# ---------------------------------------------------------
++
+ echo "killing running instances"
++
+ pkill -x cf2 || true
+ pkill -f "crazysim_cpx.py" || true
+ pkill -f "crazysim.py" || true
++
+ sleep 1
+ 
+-# Start firmware instance
++# ---------------------------------------------------------
++# Start firmware
++# ---------------------------------------------------------
++
+ working_dir="$build_path/0"
++
+ [ ! -d "$working_dir" ] && mkdir -p "$working_dir"
++
+ pushd "$working_dir" &>/dev/null
++
+ echo "Starting firmware instance 0 on port 19950"
++
+ $build_path/cf2 19950 > out.log 2> error.log &
++
+ popd &>/dev/null
+ 
+ sleep 1
+ 
+ trap "cleanup" SIGINT SIGTERM EXIT
+ 
+-# Start CPX bridge in background
+-python3 "$crazysim_dir/crazysim_cpx.py" &
++# ---------------------------------------------------------
++# Start AI Deck CPX bridge
++# ---------------------------------------------------------
++
++echo "Starting AI Deck CPX bridge"
++
++python3 "$crazysim_dir/crazysim_cpx.py" --camera-only &
+ 
+ sleep 1
+ 
+-# Start MuJoCo crazysim with camera (foreground)
+-echo "Connect with: python3 crazyflie-lib-python/examples/aideck/fpv.py tcp://127.0.0.1:5050"
++# ---------------------------------------------------------
++# Start CrazySim
++# ---------------------------------------------------------
++
++echo "Starting CrazySim"
++echo "Model: ${model_type}"
++echo "Initial position: (${initial_x}, ${initial_y})"
++
++if [ -n "${FLOWDECK}" ]; then
++    echo "Flow Deck: enabled"
++else
++    echo "Flow Deck: disabled"
++fi
++
++echo "AI Deck Camera: enabled"
++echo "AI Deck CPX: tcp://127.0.0.1:5050"
++
+ python3 "$crazysim_dir/crazysim.py" \
+-	--model-type "${model_type}" \
+-	--port 19950 \
+-	--vis \
+-	--camera \
+-	${SENSOR_NOISE} \
+-	${GROUND_EFFECT} \
+-	${scene_arg} \
+-	-- "0,0"
++    --model-type "${model_type}" \
++    --port 19950 \
++    --vis \
++    --camera \
++    ${FLOWDECK} \
++    ${SENSOR_NOISE} \
++    ${GROUND_EFFECT} \
++    ${scene_arg} \
++    -- "${initial_x},${initial_y}"
+\ No newline at end of file

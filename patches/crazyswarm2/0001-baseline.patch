@@ -1,0 +1,56 @@
+diff --git a/crazyflie/config/crazyflies.yaml b/crazyflie/config/crazyflies.yaml
+index 9732c5b..7b491c3 100644
+--- a/crazyflie/config/crazyflies.yaml
++++ b/crazyflie/config/crazyflies.yaml
+@@ -4,9 +4,9 @@ fileversion: 3
+ robots:
+   cf231:
+     enabled: true
+-    uri: radio://0/80/2M/E7E7E7E7E7
++    uri: udp://127.0.0.1:19850
+     initial_position: [0.0, 0.0, 0.0]
+-    type: cf21  # see robot_types
++    type: cf_sim  # see robot_types
+     # firmware_params:
+     #   kalman:
+     #     pNAcc_xy: 1.0 # default 0.5
+@@ -35,6 +35,30 @@ robots:
+ 
+ # Definition of the various robot types
+ robot_types:
++  cf_sim:
++    motion_capture:
++      tracking: "vendor"
++    big_quad: false
++    firmware_logging:
++      enabled: true
++      default_topics:
++        pose:
++          frequency: 10
++      
++      custom_topics:
++        tof:
++          frequency: 20
++          vars:
++            - "range.zrange"
++        
++        flow:
++          frequency: 20
++          vars:
++            - "kalman_pred.measNX"          
++            - "kalman_pred.measNY"  
++            - "kalman_pred.predNX"  
++            - "kalman_pred.predNY"  
++
+   cf21:
+     motion_capture:
+       tracking: "librigidbodytracker" # one of "vendor", "librigidbodytracker"
+@@ -109,7 +133,7 @@ all:
+       enHighLevel: 1
+     stabilizer:
+       estimator: 2 # 1: complementary, 2: kalman
+-      controller: 2 # 1: PID, 2: mellinger
++      controller: 1 # 1: PID, 2: mellinger
+     # ring:
+     #   effect: 16 # 6: double spinner, 7: solid color, 16: packetRate
+     #   solidBlue: 255 # if set to solid color

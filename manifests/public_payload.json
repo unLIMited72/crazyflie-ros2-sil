@@ -1,0 +1,357 @@
+{
+  "note": "이 inventory 자신의 bytes는 제외; qa와 fetched source는 Git ignore로 제외",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "bytes": 172,
+      "sha256": "60f7a34326c8724f82e3b6cae669880878f5e7a040b8f3b8f9035443407f729c"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 350,
+      "sha256": "4e8be95348ad28a54db9b64108f41e5f8d1174a756f43ee5ceb537d5722eff97"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "README.md",
+      "bytes": 11452,
+      "sha256": "1d70fbd6f6636c0a1483060e84f1b8125f62e9e03cba123e4724b3cfeea485ad"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "bytes": 12256,
+      "sha256": "b2bf0c0a009e407e5f1ffd9adc920757a6c03d650d6d5926f7a0ac9ca711f0ac"
+    },
+    {
+      "path": "config/crazysim_env.bash",
+      "bytes": 1250,
+      "sha256": "9bf43451db822cd58db94928c0ecc9238af4be31e88d50b05753283b1f181b32"
+    },
+    {
+      "path": "config/shell_aliases_example.bash",
+      "bytes": 258,
+      "sha256": "7a08c89800449678d9884cd58faf9db04df9415228344924915f7c6638d58ad5"
+    },
+    {
+      "path": "crazyswarm2_ws/src/aideck_ros2_bridge/LICENSE",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "crazyswarm2_ws/src/aideck_ros2_bridge/README.md",
+      "bytes": 320,
+      "sha256": "e0812f5d583ca36f61c4d957be41cb0f965a38d14bb6c53bb5378474a309bc46"
+    },
+    {
+      "path": "crazyswarm2_ws/src/aideck_ros2_bridge/aideck_ros2_bridge/__init__.py",
+      "bytes": 38,
+      "sha256": "6c6ec57de9f82ef42d82760f144a4571cb16b3cd6de33aaa7aa9fd65e8ab1fa1"
+    },
+    {
+      "path": "crazyswarm2_ws/src/aideck_ros2_bridge/aideck_ros2_bridge/aideck_camera_node.py",
+      "bytes": 6892,
+      "sha256": "392e8679051ecb7d7801fd691793ad206de3e6ea113f276aae234724fe14d572"
+    },
+    {
+      "path": "crazyswarm2_ws/src/aideck_ros2_bridge/aideck_ros2_bridge/cpx_transport.py",
+      "bytes": 6020,
+      "sha256": "539dfa3aa77a95ff8b0911d6dbe06ca0162bfc409f1fe066ac941237cc78f7da"
+    },
+    {
+      "path": "crazyswarm2_ws/src/aideck_ros2_bridge/aideck_ros2_bridge/image_decoder.py",
+      "bytes": 4787,
+      "sha256": "114a85c322f58b2b3b1c2cfa221af42f11e1303628a1ee54f80b66695626c78a"
+    },
+    {
+      "path": "crazyswarm2_ws/src/aideck_ros2_bridge/package.xml",
+      "bytes": 788,
+      "sha256": "31935d0107abc14d62803c82b78b068ad5de25c6a866c02d71fa7d75d04d6f3d"
+    },
+    {
+      "path": "crazyswarm2_ws/src/aideck_ros2_bridge/resource/aideck_ros2_bridge",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "crazyswarm2_ws/src/aideck_ros2_bridge/setup.cfg",
+      "bytes": 105,
+      "sha256": "25177524c25e794e957bc4d07b5a35894ea737657e1bd0f22bcc17a058a3a960"
+    },
+    {
+      "path": "crazyswarm2_ws/src/aideck_ros2_bridge/setup.py",
+      "bytes": 845,
+      "sha256": "1d53af19434a661ad08064958cbbc3e539871269db92f4b30b4e39b7a20c6e34"
+    },
+    {
+      "path": "crazyswarm2_ws/src/aideck_ros2_bridge/test/test_copyright.py",
+      "bytes": 962,
+      "sha256": "ea71bbbc6247b5c14d176ed09f39ee274d563cc9b2ec355828ea451ceff31757"
+    },
+    {
+      "path": "crazyswarm2_ws/src/aideck_ros2_bridge/test/test_flake8.py",
+      "bytes": 884,
+      "sha256": "37a813a0507f0ce51a2d0b57312d2cc078a0307a3ca85580ea801b0d2f9755d2"
+    },
+    {
+      "path": "crazyswarm2_ws/src/aideck_ros2_bridge/test/test_pep257.py",
+      "bytes": 803,
+      "sha256": "e8b88d49ee296987b1b40069f81019b5fa09b1aa1bfee9a1faae45bb5cf53eda"
+    },
+    {
+      "path": "crazyswarm2_ws/src/crazysim_bringup/README.md",
+      "bytes": 318,
+      "sha256": "0ae7b87bab17be5a8f706d0202686c4cd106421370fd051f6e86e33e178ec422"
+    },
+    {
+      "path": "crazyswarm2_ws/src/crazysim_bringup/crazysim_bringup/__init__.py",
+      "bytes": 38,
+      "sha256": "6c6ec57de9f82ef42d82760f144a4571cb16b3cd6de33aaa7aa9fd65e8ab1fa1"
+    },
+    {
+      "path": "crazyswarm2_ws/src/crazysim_bringup/launch/single_cf.launch.py",
+      "bytes": 4272,
+      "sha256": "a6c3904a84543d4c698353844ea505eef83c96073304b9c297058f6cfe5f3a48"
+    },
+    {
+      "path": "crazyswarm2_ws/src/crazysim_bringup/package.xml",
+      "bytes": 868,
+      "sha256": "bac0e43f86af1ad865d8044f70e6d4616f0e79cc2c38d158fd8205933d1f9cd9"
+    },
+    {
+      "path": "crazyswarm2_ws/src/crazysim_bringup/resource/crazysim_bringup",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "crazyswarm2_ws/src/crazysim_bringup/setup.cfg",
+      "bytes": 101,
+      "sha256": "72e2302855675c48a5d58d5aae9d8b8dcef3f7c18295d423c6579b8b5e594b35"
+    },
+    {
+      "path": "crazyswarm2_ws/src/crazysim_bringup/setup.py",
+      "bytes": 983,
+      "sha256": "2a165082026dd0893b3f410da335b42296fd7478b7edfdb756ffd4651c17933f"
+    },
+    {
+      "path": "crazyswarm2_ws/src/crazysim_bringup/test/test_copyright.py",
+      "bytes": 962,
+      "sha256": "ea71bbbc6247b5c14d176ed09f39ee274d563cc9b2ec355828ea451ceff31757"
+    },
+    {
+      "path": "crazyswarm2_ws/src/crazysim_bringup/test/test_flake8.py",
+      "bytes": 884,
+      "sha256": "37a813a0507f0ce51a2d0b57312d2cc078a0307a3ca85580ea801b0d2f9755d2"
+    },
+    {
+      "path": "crazyswarm2_ws/src/crazysim_bringup/test/test_pep257.py",
+      "bytes": 803,
+      "sha256": "e8b88d49ee296987b1b40069f81019b5fa09b1aa1bfee9a1faae45bb5cf53eda"
+    },
+    {
+      "path": "docs/ARCHITECTURE.md",
+      "bytes": 5025,
+      "sha256": "61c685467c5307185a40db52a1064979181449987d65f83f342126d1d6cace9e"
+    },
+    {
+      "path": "docs/BASELINE.md",
+      "bytes": 1232,
+      "sha256": "2696e6c9557e545b528fe8fa670b56dfc9c209d281efeb49c815f53cdab9229e"
+    },
+    {
+      "path": "docs/DEVELOPMENT.md",
+      "bytes": 1858,
+      "sha256": "1895ae7119cc162f5baeecb832f3ae9efa598f8499025e2e230c6d11411c1e77"
+    },
+    {
+      "path": "docs/GITHUB_PUBLISH_CHECKLIST.md",
+      "bytes": 1675,
+      "sha256": "b8febce0ed9225afdb3572dc85fdf63e3760719660eb9c2095751b39d1b966b2"
+    },
+    {
+      "path": "docs/INSTALL.md",
+      "bytes": 3856,
+      "sha256": "aa9318e9c7a5ef8a1e7428d24ff063e330c42bed41f580249daffa86393eeaa9"
+    },
+    {
+      "path": "docs/LICENSES.md",
+      "bytes": 1225,
+      "sha256": "48850c8f952169fd93e693cd1fe891afc8dcc912f18fa6819d7e8acb87d05450"
+    },
+    {
+      "path": "docs/LICENSE_DESIGN.md",
+      "bytes": 3466,
+      "sha256": "dfb79fad419c75b84b978c64e1ab0d045be60cde1281a3736e41fa8bcf5bb06e"
+    },
+    {
+      "path": "docs/QA_REPORT.md",
+      "bytes": 7280,
+      "sha256": "64dabaca26d5274fb1f0249a0cd381294cb9b9920823cdd92c68e636533345cd"
+    },
+    {
+      "path": "docs/REPRODUCIBILITY.md",
+      "bytes": 3923,
+      "sha256": "d0a05106893517357cf587d9242320832e7a809ff2a81257241261709eb56006"
+    },
+    {
+      "path": "docs/SOURCE_PROVENANCE.md",
+      "bytes": 8389,
+      "sha256": "6a57a3601cb24ad66cb443be320d2e4e486893fa156d1de66f0b93505efbee56"
+    },
+    {
+      "path": "docs/TROUBLESHOOTING.md",
+      "bytes": 4601,
+      "sha256": "b47a129c98e96170f769834ec8527881f5827c13c7597cea6bfba1e73544eee3"
+    },
+    {
+      "path": "manifests/baseline_versions.md",
+      "bytes": 4244,
+      "sha256": "69b4360e557056d9e9511cceae82b36261862f536d1af4fde108b7d544ef8c45"
+    },
+    {
+      "path": "manifests/custom_license_scope.json",
+      "bytes": 5938,
+      "sha256": "e2238fb8eff897ce288f9ac4c689e8a6466535683c70cef03e413609104ada60"
+    },
+    {
+      "path": "manifests/system_baseline.txt",
+      "bytes": 526,
+      "sha256": "049389b193dbf0b8d2da7eb072b5734824e01679c43d147db145eeff71b9418d"
+    },
+    {
+      "path": "manifests/upstream_sources.yaml",
+      "bytes": 11908,
+      "sha256": "d3a3e9ef6252c7fe413e5c630f00e43ea6f0abb9bd122a08aafad15aad7e0f1c"
+    },
+    {
+      "path": "patches/README.md",
+      "bytes": 3581,
+      "sha256": "8af9285a6693d8cd9033eeebda0b66023a90aa2461d52c1130ba70312512b54a"
+    },
+    {
+      "path": "patches/crazyflie-lib-python-fpv/0001-baseline.patch",
+      "bytes": 1045,
+      "sha256": "c7bea18129eb542fbc603bab017b7f53053cec86f49c47dca8911f62d74b1607"
+    },
+    {
+      "path": "patches/crazyflie-simulation/0001-baseline.patch",
+      "bytes": 8462,
+      "sha256": "ed8a7f95b7c91d5e30dc106b09c82c82748ef1c2d683728db44ca12c6bc3b579"
+    },
+    {
+      "path": "patches/crazyflie-simulation/0002-path-portability.patch",
+      "bytes": 1018,
+      "sha256": "3da15c839152ad52d5be6cb993ec6d4ac180631a53499c3b9b1b618b19579a3e"
+    },
+    {
+      "path": "patches/crazyswarm2/0001-baseline.patch",
+      "bytes": 1578,
+      "sha256": "a02f5c64db793b5edc3c16ac93f017b2f340178cb93381961294d9f0aae3feae"
+    },
+    {
+      "path": "requirements/build-tools.txt",
+      "bytes": 200,
+      "sha256": "f3a95854043909f48f1effe2dfb9e520b814c504ec13273ed4ae6236ecf7b10e"
+    },
+    {
+      "path": "requirements/requirements-lock.txt",
+      "bytes": 604,
+      "sha256": "324f140d91bc97c9490e158fa2190e48cbdf1b48870c8482258030349cd9220b"
+    },
+    {
+      "path": "requirements/requirements.txt",
+      "bytes": 407,
+      "sha256": "0aa23b07fdf41fe8ac35e29d34c14336e68b0a211864f059ba55d018becc0f3f"
+    },
+    {
+      "path": "scripts/bootstrap.sh",
+      "bytes": 1055,
+      "sha256": "fd24044441d0080395248f3ac3ac570b7bd022725e21d2842c80de215e78a98a"
+    },
+    {
+      "path": "scripts/build_firmware.sh",
+      "bytes": 585,
+      "sha256": "35dc790f6dc210c4fa3a20752aa26355f3da8fd054241ee63c0c9bd09f520d9d"
+    },
+    {
+      "path": "scripts/build_ros2.sh",
+      "bytes": 1593,
+      "sha256": "23c6cb089935e4a12de844f845a9de33f4ffdb023f47f176427d6c702c84eb8d"
+    },
+    {
+      "path": "scripts/common.bash",
+      "bytes": 936,
+      "sha256": "2c03ac55ab5185ee281707f43c4c0214583aed5f247fa17e883deeb93a08d234"
+    },
+    {
+      "path": "scripts/manage_sources.py",
+      "bytes": 6945,
+      "sha256": "216431ea4e98af158426b7c40ae379741d065c1f970c97874920520ae04043c7"
+    },
+    {
+      "path": "scripts/rebuild_ros2.sh",
+      "bytes": 205,
+      "sha256": "c32988ae536ee8dfd29d1340ed99bdf7794a923e9f4e96e09d30ad180ab6acc1"
+    },
+    {
+      "path": "scripts/run_single_cf.sh",
+      "bytes": 556,
+      "sha256": "a7bf81b55718ca02c367b9c227fc067e481db948eb4e796ccfdb256f9560c286"
+    },
+    {
+      "path": "scripts/setup_firmware.sh",
+      "bytes": 585,
+      "sha256": "35dc790f6dc210c4fa3a20752aa26355f3da8fd054241ee63c0c9bd09f520d9d"
+    },
+    {
+      "path": "scripts/setup_python.sh",
+      "bytes": 1100,
+      "sha256": "727c370e49ab3be9cd4e814ba9115ab9f55449aca4c5075b4d1b6a714fdb1295"
+    },
+    {
+      "path": "scripts/setup_ros_dependencies.sh",
+      "bytes": 1508,
+      "sha256": "5d8bf7f6e1875a4a45dd0b7cddb8861569c5b22d2169d4e5a1bfb910fcfc64e9"
+    },
+    {
+      "path": "scripts/setup_sources.sh",
+      "bytes": 191,
+      "sha256": "ac961c126ebd5b581c8b4dc2c747dec52af9b69f75b812410744d947e9780648"
+    },
+    {
+      "path": "scripts/verify_baseline.py",
+      "bytes": 2207,
+      "sha256": "84344a417e91c0d530efdc9b3a6060cc4877dd108996183c8c8e0da4609b3f69"
+    },
+    {
+      "path": "scripts/verify_baseline.sh",
+      "bytes": 304,
+      "sha256": "a0a6e21cb162d8fd38faed19474d8e9ddc0c626fea1e05f143c9ddba1fb9c7b9"
+    },
+    {
+      "path": "scripts/verify_environment.sh",
+      "bytes": 2144,
+      "sha256": "51c66392076c3b101e16283345b546854ddee700d0907609fb3be9aa92897c28"
+    },
+    {
+      "path": "third_party/licenses/cflib-GPL-2.0.txt",
+      "bytes": 18735,
+      "sha256": "2737387fa475220d14aa3ce3740f056712ee3ab7addeb58ceefdc02f819f0f5a"
+    },
+    {
+      "path": "third_party/licenses/crazyflie-simulation-MIT.txt",
+      "bytes": 1065,
+      "sha256": "47b665f1a998a2fb77eb69f81dd9490d63ddc76471b786672229fc71b2a09fe0"
+    },
+    {
+      "path": "third_party/licenses/crazyswarm2-MIT.txt",
+      "bytes": 1075,
+      "sha256": "e66f2997bfc20794c9e0d6d58e902699398a7e6a13f31e932a69b8f87efa33eb"
+    }
+  ],
+  "count_excluding_this_manifest": 70,
+  "bytes_excluding_this_manifest": 202957
+}

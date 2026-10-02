@@ -1,0 +1,31 @@
+diff --git a/examples/aideck/fpv.py b/examples/aideck/fpv.py
+index bea7924..4b3000d 100644
+--- a/examples/aideck/fpv.py
++++ b/examples/aideck/fpv.py
+@@ -48,7 +48,7 @@ import logging
+ import struct
+ import sys
+ import threading
+-from time import time
++import time
+ 
+ import numpy as np
+ 
+@@ -186,7 +186,7 @@ class MainWindow(QtWidgets.QWidget):
+ 
+             self.hover = {'x': 0.0, 'y': 0.0, 'z': 0.0, 'yaw': 0.0, 'height': 0.3}
+ 
+-            # Arm the Crazyflie
++            # Camera viewer only
+             self.cf.platform.send_arming_request(True)
+             time.sleep(1.0)
+ 
+@@ -196,7 +196,7 @@ class MainWindow(QtWidgets.QWidget):
+             self.hoverTimer.start()
+ 
+     def updateImage(self, image):
+-        i = QtGui.QImage(image, CAM_WIDTH, CAM_HEIGHT, QtGui.QImage.Format_Grayscale8).scaled(324*2, 244*2)
++        i = QtGui.QImage(image, CAM_WIDTH, CAM_HEIGHT, QtGui.QImage.Format.Format_Grayscale8).scaled(324*2, 244*2)
+         self.image_frame.setPixmap(QtGui.QPixmap.fromImage(i))
+ 
+     def keyPressEvent(self, event):

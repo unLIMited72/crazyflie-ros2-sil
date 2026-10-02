@@ -1,0 +1,140 @@
+[
+  {
+    "path": "crazyswarm2_ws/src/crazysim_bringup/package.xml",
+    "license": "Apache-2.0",
+    "basis": "사용자 Apache-2.0 공개 지시; custom implementation/metadata 검토",
+    "copyright": "기존 표기만 유지; 새 이름 생성 안 함"
+  },
+  {
+    "path": "crazyswarm2_ws/src/crazysim_bringup/setup.py",
+    "license": "Apache-2.0",
+    "basis": "사용자 Apache-2.0 공개 지시; custom implementation/metadata 검토",
+    "copyright": "기존 표기만 유지; 새 이름 생성 안 함"
+  },
+  {
+    "path": "crazyswarm2_ws/src/crazysim_bringup/setup.cfg",
+    "license": "Apache-2.0",
+    "basis": "사용자 Apache-2.0 공개 지시; custom implementation/metadata 검토",
+    "copyright": "기존 표기만 유지; 새 이름 생성 안 함"
+  },
+  {
+    "path": "crazyswarm2_ws/src/crazysim_bringup/README.md",
+    "license": "Apache-2.0",
+    "basis": "사용자 Apache-2.0 공개 지시; custom implementation/metadata 검토",
+    "copyright": "기존 표기만 유지; 새 이름 생성 안 함"
+  },
+  {
+    "path": "crazyswarm2_ws/src/crazysim_bringup/resource/crazysim_bringup",
+    "license": "Apache-2.0",
+    "basis": "사용자 Apache-2.0 공개 지시; custom implementation/metadata 검토",
+    "copyright": "기존 표기만 유지; 새 이름 생성 안 함"
+  },
+  {
+    "path": "crazyswarm2_ws/src/crazysim_bringup/test/test_pep257.py",
+    "license": "Apache-2.0",
+    "basis": "기존 OSRF header 유지",
+    "copyright": "기존 표기만 유지; 새 이름 생성 안 함"
+  },
+  {
+    "path": "crazyswarm2_ws/src/crazysim_bringup/test/test_copyright.py",
+    "license": "Apache-2.0",
+    "basis": "기존 OSRF header 유지",
+    "copyright": "기존 표기만 유지; 새 이름 생성 안 함"
+  },
+  {
+    "path": "crazyswarm2_ws/src/crazysim_bringup/test/test_flake8.py",
+    "license": "Apache-2.0",
+    "basis": "기존 OSRF header 유지",
+    "copyright": "기존 표기만 유지; 새 이름 생성 안 함"
+  },
+  {
+    "path": "crazyswarm2_ws/src/crazysim_bringup/launch/single_cf.launch.py",
+    "license": "Apache-2.0",
+    "basis": "사용자 Apache-2.0 공개 지시; custom implementation/metadata 검토",
+    "copyright": "기존 표기만 유지; 새 이름 생성 안 함"
+  },
+  {
+    "path": "crazyswarm2_ws/src/crazysim_bringup/crazysim_bringup/__init__.py",
+    "license": "Apache-2.0",
+    "basis": "사용자 Apache-2.0 공개 지시; custom implementation/metadata 검토",
+    "copyright": "기존 표기만 유지; 새 이름 생성 안 함"
+  },
+  {
+    "path": "crazyswarm2_ws/src/aideck_ros2_bridge/package.xml",
+    "license": "Apache-2.0",
+    "basis": "사용자 Apache-2.0 공개 지시; custom implementation/metadata 검토",
+    "copyright": "기존 표기만 유지; 새 이름 생성 안 함"
+  },
+  {
+    "path": "crazyswarm2_ws/src/aideck_ros2_bridge/setup.py",
+    "license": "Apache-2.0",
+    "basis": "사용자 Apache-2.0 공개 지시; custom implementation/metadata 검토",
+    "copyright": "기존 표기만 유지; 새 이름 생성 안 함"
+  },
+  {
+    "path": "crazyswarm2_ws/src/aideck_ros2_bridge/LICENSE",
+    "license": "Apache-2.0",
+    "basis": "사용자 Apache-2.0 공개 지시; custom implementation/metadata 검토",
+    "copyright": "기존 표기만 유지; 새 이름 생성 안 함"
+  },
+  {
+    "path": "crazyswarm2_ws/src/aideck_ros2_bridge/setup.cfg",
+    "license": "Apache-2.0",
+    "basis": "사용자 Apache-2.0 공개 지시; custom implementation/metadata 검토",
+    "copyright": "기존 표기만 유지; 새 이름 생성 안 함"
+  },
+  {
+    "path": "crazyswarm2_ws/src/aideck_ros2_bridge/README.md",
+    "license": "Apache-2.0",
+    "basis": "사용자 Apache-2.0 공개 지시; custom implementation/metadata 검토",
+    "copyright": "기존 표기만 유지; 새 이름 생성 안 함"
+  },
+  {
+    "path": "crazyswarm2_ws/src/aideck_ros2_bridge/aideck_ros2_bridge/image_decoder.py",
+    "license": "Apache-2.0",
+    "basis": "사용자 Apache-2.0 공개 지시; custom implementation/metadata 검토",
+    "copyright": "기존 표기만 유지; 새 이름 생성 안 함"
+  },
+  {
+    "path": "crazyswarm2_ws/src/aideck_ros2_bridge/aideck_ros2_bridge/aideck_camera_node.py",
+    "license": "Apache-2.0",
+    "basis": "사용자 Apache-2.0 공개 지시; custom implementation/metadata 검토",
+    "copyright": "기존 표기만 유지; 새 이름 생성 안 함"
+  },
+  {
+    "path": "crazyswarm2_ws/src/aideck_ros2_bridge/aideck_ros2_bridge/cpx_transport.py",
+    "license": "Apache-2.0",
+    "basis": "사용자 Apache-2.0 공개 지시; custom implementation/metadata 검토",
+    "copyright": "기존 표기만 유지; 새 이름 생성 안 함"
+  },
+  {
+    "path": "crazyswarm2_ws/src/aideck_ros2_bridge/aideck_ros2_bridge/__init__.py",
+    "license": "Apache-2.0",
+    "basis": "사용자 Apache-2.0 공개 지시; custom implementation/metadata 검토",
+    "copyright": "기존 표기만 유지; 새 이름 생성 안 함"
+  },
+  {
+    "path": "crazyswarm2_ws/src/aideck_ros2_bridge/resource/aideck_ros2_bridge",
+    "license": "Apache-2.0",
+    "basis": "사용자 Apache-2.0 공개 지시; custom implementation/metadata 검토",
+    "copyright": "기존 표기만 유지; 새 이름 생성 안 함"
+  },
+  {
+    "path": "crazyswarm2_ws/src/aideck_ros2_bridge/test/test_pep257.py",
+    "license": "Apache-2.0",
+    "basis": "기존 OSRF header 유지",
+    "copyright": "기존 표기만 유지; 새 이름 생성 안 함"
+  },
+  {
+    "path": "crazyswarm2_ws/src/aideck_ros2_bridge/test/test_copyright.py",
+    "license": "Apache-2.0",
+    "basis": "기존 OSRF header 유지",
+    "copyright": "기존 표기만 유지; 새 이름 생성 안 함"
+  },
+  {
+    "path": "crazyswarm2_ws/src/aideck_ros2_bridge/test/test_flake8.py",
+    "license": "Apache-2.0",
+    "basis": "기존 OSRF header 유지",
+    "copyright": "기존 표기만 유지; 새 이름 생성 안 함"
+  }
+]

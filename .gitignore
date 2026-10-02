@@ -1,0 +1,22 @@
+# SPDX-License-Identifier: Apache-2.0
+.venv/
+**/build/
+**/install/
+**/log/
+**/cache/
+**/__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.vscode/
+.idea/
+/qa/
+/crazyflie-firmware/
+/crazyflie-lib-python/
+/crazyflie-lib-python-fpv/
+/crazyswarm2_ws/src/crazyswarm2/
+
+# Crash dumps are runtime artifacts, never publication payload.
+core
+core.*

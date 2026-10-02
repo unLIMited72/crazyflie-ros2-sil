@@ -1,0 +1,32 @@
+diff --git a/simulator_files/mujoco/launch/sitl_camera.sh b/simulator_files/mujoco/launch/sitl_camera.sh
+index 75d59ab..9ddc6d1 100755
+--- a/simulator_files/mujoco/launch/sitl_camera.sh
++++ b/simulator_files/mujoco/launch/sitl_camera.sh
+@@ -81,8 +81,8 @@ model_type=${MODEL_TYPE:="cf2x_T350"}
+ initial_x=${INITIAL_X:="0"}
+ initial_y=${INITIAL_Y:="0"}
+ 
+-scene_arg=""
+-[ -n "${SCENE}" ] && scene_arg="--scene ${SCENE}"
++scene_arg=()
++[ -n "${SCENE}" ] && scene_arg=(--scene "${SCENE}")
+ 
+ # ---------------------------------------------------------
+ # Paths
+@@ -118,7 +118,7 @@ pushd "$working_dir" &>/dev/null
+ 
+ echo "Starting firmware instance 0 on port 19950"
+ 
+-$build_path/cf2 19950 > out.log 2> error.log &
++"$build_path/cf2" 19950 > out.log 2> error.log &
+ 
+ popd &>/dev/null
+ 
+@@ -161,5 +161,5 @@ python3 "$crazysim_dir/crazysim.py" \
+     ${FLOWDECK} \
+     ${SENSOR_NOISE} \
+     ${GROUND_EFFECT} \
+-    ${scene_arg} \
++    "${scene_arg[@]}" \
+     -- "${initial_x},${initial_y}"
+\ No newline at end of file
