@@ -51,13 +51,13 @@ Public checkout의 실제 사용자 runtime 검증에서 283 frames, 324×244 mo
 
 ```mermaid
 flowchart LR
-  R[ROS2 / Crazyswarm2] --> C[cflib]
-  C <-->|UDP 19850| S[CrazySim]
-  S <-->|UDP 19950| F[Firmware SITL / Kalman / PID]
-  S <--> M[MuJoCo / Flow Deck]
-  M -->|324x244 mono8 / UDP 5200| P[CPX camera-only]
-  P -->|TCP 5050| B[aideck_ros2_bridge]
-  B --> I[/cf231/camera/image_raw]
+  R["ROS2 / Crazyswarm2"] --> C["cflib"]
+  C <-->|UDP 19850| S["CrazySim"]
+  S <-->|UDP 19950| F["Firmware SITL / Kalman / PID"]
+  S <--> M["MuJoCo / Flow Deck"]
+  M -->|324x244 mono8 / UDP 5200| P["CPX camera-only"]
+  P -->|TCP 5050| B["aideck_ros2_bridge"]
+  B --> I["/cf231/camera/image_raw"]
 ```
 
 UDP 19850은 cflib 연결 지점이며 firmware 내부 endpoint 19950과 다릅니다. [ARCHITECTURE](docs/ARCHITECTURE.md)에 source와 protocol 근거를 설명합니다.

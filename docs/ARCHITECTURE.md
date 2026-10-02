@@ -4,14 +4,14 @@
 
 ```mermaid
 flowchart LR
-    R[ROS2 command / logging] <--> W[Crazyswarm2 cflib backend]
-    W <--> C[cflib UDP driver]
-    C <-->|UDP 19850| S[CrazySim 통신 중계]
-    S <-->|UDP 19950| F[Crazyflie firmware SITL]
-    F --> E[Kalman estimator]
-    E --> P[PID controller]
+    R["ROS2 command / logging"] <--> W["Crazyswarm2 cflib backend"]
+    W <--> C["cflib UDP driver"]
+    C <-->|UDP 19850| S["CrazySim 통신 중계"]
+    S <-->|UDP 19950| F["Crazyflie firmware SITL"]
+    F --> E["Kalman estimator"]
+    E --> P["PID controller"]
     P --> S
-    S <--> M[MuJoCo 물리]
+    S <--> M["MuJoCo 물리"]
 ```
 
 launch에서 backend=cflib, mocap=false, gui=false, teleop=false를 지정합니다. firmware의 motor output과 MuJoCo 상태/센서 입력이 루프를 구성합니다. 19850은 firmware port 19950에 offset -100을 적용한 cflib 쪽 UDP 연결입니다. 이를 같은 port로 합치면 안 됩니다.
@@ -22,14 +22,14 @@ launch에서 backend=cflib, mocap=false, gui=false, teleop=false를 지정합니
 
 ```mermaid
 flowchart LR
-    M[MuJoCo / CrazySim] --> T[VL53L1X ToF simulation]
-    M --> O[PMW3901 flow simulation]
-    T --> R[rangeEnqueueDownRangeInEstimator]
-    O --> D[flowData]
+    M["MuJoCo / CrazySim"] --> T["VL53L1X ToF simulation"]
+    M --> O["PMW3901 flow simulation"]
+    T --> R["rangeEnqueueDownRangeInEstimator"]
+    O --> D["flowData"]
     D --> Q["estimatorEnqueueFlow(&flowData)"]
-    R --> K[Kalman]
+    R --> K["Kalman"]
     Q --> K
-    K --> L[ROS2 firmware logging]
+    K --> L["ROS2 firmware logging"]
 ```
 
 firmware/src/hal/src/sensors_sitl.c가 dpixelx/dpixely와 dt를 수신 데이터에서 구성합니다. stdDevX와 stdDevY는 각각 2.0f입니다. `estimatorEnqueueFlow`를 호출하므로 motion.deltaX/deltaY driver logging을 읽는 구조와 다릅니다.
@@ -42,13 +42,13 @@ ToF: range.zrange → /cf231/tof. Optical flow 관측: kalman_pred.measNX, measN
 
 ```mermaid
 flowchart LR
-    M[MuJoCo camera] --> G[324 x 244 grayscale]
-    G -->|UDP 5200| C[crazysim_cpx.py --camera-only]
-    C --> A[CPX APP packet]
-    A -->|TCP 5050| T[cpx_transport.py]
-    T --> D[image_decoder.py / NumPy mono8]
-    D --> N[aideck_camera_node.py]
-    N --> I[sensor_msgs/Image /cf231/camera/image_raw]
+    M["MuJoCo camera"] --> G["324 x 244 grayscale"]
+    G -->|UDP 5200| C["crazysim_cpx.py --camera-only"]
+    C --> A["CPX APP packet"]
+    A -->|TCP 5050| T["cpx_transport.py"]
+    T --> D["image_decoder.py / NumPy mono8"]
+    D --> N["aideck_camera_node.py"]
+    N --> I["sensor_msgs/Image /cf231/camera/image_raw"]
 ```
 
 cpx_transport.py는 4-byte wire header `<HBB`를 읽고 source=GAP8(4), destination=HOST(3), function=APP(5)를 선택합니다. image header packet 이후 last flag까지 payload를 모읍니다. image_decoder.py는 11-byte AI Deck header `<BHHBBI`를 읽습니다.
@@ -84,13 +84,13 @@ scene override는 launch의 scene argument입니다. obstacles의 geom에 contyp
 
 ```mermaid
 flowchart LR
-    R[ROS2 상위 interface] --> W[Crazyswarm2 또는 ROS2+cflib]
-    W --> Q[Crazyradio]
-    Q --> C[CRTP / Crazyflie 2.1]
-    H[AI Deck HM01B0] --> G[GAP8]
-    G --> E[ESP32]
-    E --> F[Wi-Fi]
-    F --> B[aideck_ros2_bridge]
+    R["ROS2 상위 interface"] --> W["Crazyswarm2 또는 ROS2+cflib"]
+    W --> Q["Crazyradio"]
+    Q --> C["CRTP / Crazyflie 2.1"]
+    H["AI Deck HM01B0"] --> G["GAP8"]
+    G --> E["ESP32"]
+    E --> F["Wi-Fi"]
+    F --> B["aideck_ros2_bridge"]
     B --> R
 ```
 
